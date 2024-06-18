@@ -24,6 +24,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping("/error")
+    public ResponseEntity<Void> triggerError() {
+        throw new RuntimeException("This is a test error");
+    }
+
     @GetMapping
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();

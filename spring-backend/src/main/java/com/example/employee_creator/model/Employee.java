@@ -15,6 +15,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "employees")
@@ -24,27 +27,38 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Size(max = 50)
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
 
+    @NotNull
+    @Size(max = 50)
     @Column(name = "last_name", nullable = false, length = 50)
     private String lastName;
 
+    @NotNull
+    @Email
+    @Size(max = 100)
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
+    @Size(max = 20)
     @Column(name = "phone_number", length = 20)
     private String phoneNumber;
 
+    @Size(max = 100)
     @Column(length = 100)
     private String department;
 
+    @Size(max = 100)
     @Column(name = "job_title", length = 100)
     private String jobTitle;
 
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
+    @NotNull
     @Column(name = "hire_date", nullable = false)
     private Date hireDate;
 
@@ -64,7 +78,7 @@ public class Employee {
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     private Date updatedAt;
-
+    
     // Getters and setters...
 
     public Long getId() {
