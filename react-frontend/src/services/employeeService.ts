@@ -12,3 +12,12 @@ export const getEmployees = async () => {
     throw error;
   }
 };
+
+export const deleteEmployee = async (id: number) => {
+  try {
+    await axios.delete(`${API_URL}/${id}`);
+  } catch (error) {
+    console.error(`Error deleting employee with id ${id}`, error);
+    throw error;
+  }
+};

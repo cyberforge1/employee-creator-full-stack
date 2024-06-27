@@ -1,3 +1,5 @@
+/* index.css or global.css */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -24,10 +26,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: black; /* Set default text color to black */
+  background-color: #f8f9fa; /* Set the off-white background color */
 }
 
 h1 {
@@ -84,4 +86,78 @@ body {
 
 h1 {
   @apply text-2xl font-bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.bg-off-white {
+  background-color: #f8f9fa;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.full-height {
+  height: 100%;
+  min-height: 100vh;
+}
+
+html, body {
+  width: 100%; /* Ensure the width spans the entire viewport */
+  min-height: 100vh; /* Minimum height to cover the viewport height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-color: #f8f9fa; /* Set your desired background color */
+}
+
+body {
+  /* Additional styles for the body to expand with content */
+  display: flex;
+  flex-direction: column;
 }

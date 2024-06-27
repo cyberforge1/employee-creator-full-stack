@@ -1,4 +1,5 @@
-// src/main.tsx
+// main.tsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/" element={<App />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/employee-form" element={<EmployeeForm />} />
+          <Route path="/employee-form/:id" element={<EmployeeForm />} />
         </Routes>
       </BrowserRouter>
     </Provider>
