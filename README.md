@@ -81,13 +81,13 @@ The objective for the frontend was to create a responsive, appealing, and intuit
 2. Clone the project from GitHub:
 
 ```bash
-git clone git@github.com/cyberforge1/employee-creator.git
+git clone git@github.com:cyberforge1/employee-creator-full-stack.git
 ```
 
 3. Navigate into the project directory:
 
 ```bash
-cd employee-creator
+cd employee-creator-full-stack/spring-backend
 ```
 
 4. Open MySQL WorkBench (or access through CLI) and create a new database:
