@@ -76,7 +76,7 @@ button:focus-visible {
 
 /* Custom Styles */
 html, body, #root {
-  @apply h-full w-full;
+  @apply  w-full;
   margin: 0;
 }
 

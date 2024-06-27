@@ -52,7 +52,7 @@ const EmployeeForm: React.FC = () => {
   }
 
   return (
-    <div className="w-full h-full bg-off-white full-height">
+    <div className="w-full  bg-off-white full-height">
       <Header title="Employee Form" />
       <div className="bg-white p-8 shadow-md rounded-md container">
         <FormProvider {...methods}>
