@@ -32,6 +32,7 @@ A full-stack employee management application with complete CRUD functionality, u
 1. Clone the project from GitHub:
    ```bash
    git clone git@github.com:cyberforge1/employee-creator-full-stack.git
+    ```
 
 2. Create, initialize and link a MySQL database to the backend API
 
@@ -40,11 +41,12 @@ A full-stack employee management application with complete CRUD functionality, u
 4. Navigate to the frontend directory
    ```bash
    cd employee-creator-full-stack/react-frontend
+    ```
 
 5. Run the frontend locally 
    ```bash
    npm run dev
-
+    ```
 
 ## How To Use
 Users can create an employee by filling out the form inputs and submitting the 'Save' button. Employees can then be edited or deleted with a button click.
