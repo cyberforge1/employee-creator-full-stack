@@ -8,6 +8,8 @@ mvn spring-boot:run
 
 ./mvnw test
 
+port 8080
+
 
 ## Testing
 

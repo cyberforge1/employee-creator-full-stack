@@ -66,3 +66,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Tailwind CSS Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+html, body, #root {
+  @apply h-full w-full;
+  margin: 0;
+}
+
+body {
+  @apply bg-gray-100;
+}
+
+h1 {
+  @apply text-2xl font-bold;
+}
