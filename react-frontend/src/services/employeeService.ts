@@ -1,4 +1,5 @@
-// services/employeeService.ts
+// src/services/employeeService.ts
+
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/employees'; // Adjust the URL as needed

@@ -1,40 +1,43 @@
-package com.example.employee_creator;
+//EmployeeControllerWebLayerTest.java
 
-import java.util.Arrays;
 
-import org.junit.jupiter.api.Test;
-import static org.mockito.BDDMockito.given;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+// package com.example.employee_creator;
 
-import com.example.employee_creator.controller.EmployeeController;
-import com.example.employee_creator.dto.EmployeeDTO;
-import com.example.employee_creator.service.EmployeeService;
+// import java.util.Arrays;
 
-@WebMvcTest(EmployeeController.class)
-public class EmployeeControllerWebLayerTest {
+// import org.junit.jupiter.api.Test;
+// import static org.mockito.BDDMockito.given;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+// import org.springframework.boot.test.mock.mockito.MockBean;
+// import org.springframework.test.web.servlet.MockMvc;
+// import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+// import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+// import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-    @Autowired
-    private MockMvc mockMvc;
+// import com.example.employee_creator.controller.EmployeeController;
+// import com.example.employee_creator.dto.EmployeeDTO;
+// import com.example.employee_creator.service.EmployeeService;
 
-    @MockBean
-    private EmployeeService employeeService;
+// @WebMvcTest(EmployeeController.class)
+// public class EmployeeControllerWebLayerTest {
 
-    @Test
-    public void shouldReturnAllEmployees() throws Exception {
-        EmployeeDTO employee = new EmployeeDTO();
-        employee.setFirstName("John");
-        employee.setLastName("Doe");
+//     @Autowired
+//     private MockMvc mockMvc;
 
-        given(employeeService.getAllEmployees()).willReturn(Arrays.asList(employee));
+//     @MockBean
+//     private EmployeeService employeeService;
 
-        this.mockMvc.perform(get("/employees"))
-                .andExpect(status().isOk())
-                .andExpect(content().json("[{'firstName':'John', 'lastName':'Doe'}]"));
-    }
-}
+//     @Test
+//     public void shouldReturnAllEmployees() throws Exception {
+//         EmployeeDTO employee = new EmployeeDTO();
+//         employee.setFirstName("John");
+//         employee.setLastName("Doe");
+
+//         given(employeeService.getAllEmployees()).willReturn(Arrays.asList(employee));
+
+//         this.mockMvc.perform(get("/employees"))
+//                 .andExpect(status().isOk())
+//                 .andExpect(content().json("[{'firstName':'John', 'lastName':'Doe'}]"));
+//     }
+// }

@@ -1,4 +1,4 @@
-// EmployeeCard.tsx
+// src/components/EmployeeCard.tsx
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,12 @@ interface EmployeeCardProps {
     hireDate: string;
     salary: number;
     status: string;
+    residentialAddress: string;
+    startDate: string;
+    finishDate: string;
+    ongoing: boolean;
+    employmentType: string;
+    hoursPerWeek: number;
   };
   onEmployeeDeleted: (id: number) => void;
 }
@@ -52,4 +58,3 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({ employee, onEmployeeDeleted
 };
 
 export default EmployeeCard;
-

@@ -1,4 +1,4 @@
-// EmployeeForm.tsx
+// src/pages/EmployeeForm.tsx
 
 import React, { useEffect, useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
@@ -17,6 +17,7 @@ const EmployeeForm: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const onSubmit = async (data: any) => {
+    console.log('Submitting data:', data);
     try {
       if (id) {
         await axios.put(`http://localhost:8080/employees/${id}`, data);
@@ -52,7 +53,7 @@ const EmployeeForm: React.FC = () => {
   }
 
   return (
-    <div className="w-full  bg-off-white full-height">
+    <div className="w-full bg-off-white full-height">
       <Header title="Employee Form" />
       <div className="bg-white p-8 shadow-md rounded-md container">
         <FormProvider {...methods}>

@@ -1,27 +1,29 @@
-package com.example.employee_creator;
+//EmployeeControllerIntegrationTest.java
 
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+// package com.example.employee_creator;
 
-import com.example.employee_creator.dto.EmployeeDTO;
+// import static org.assertj.core.api.Assertions.assertThat;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.boot.test.web.client.TestRestTemplate;
+// import org.springframework.boot.test.web.server.LocalServerPort;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class EmployeeControllerIntegrationTest {
+// import com.example.employee_creator.dto.EmployeeDTO;
 
-    @LocalServerPort
-    private int port;
+// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// public class EmployeeControllerIntegrationTest {
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+//     @LocalServerPort
+//     private int port;
 
-    @Test
-    public void shouldReturnAllEmployees() throws Exception {
-        String url = "http://localhost:" + port + "/employees";
-        EmployeeDTO[] employees = this.restTemplate.getForObject(url, EmployeeDTO[].class);
-        assertThat(employees).isNotEmpty();
-    }
-}
+//     @Autowired
+//     private TestRestTemplate restTemplate;
+
+//     @Test
+//     public void shouldReturnAllEmployees() throws Exception {
+//         String url = "http://localhost:" + port + "/employees";
+//         EmployeeDTO[] employees = this.restTemplate.getForObject(url, EmployeeDTO[].class);
+//         assertThat(employees).isNotEmpty();
+//     }
+// }

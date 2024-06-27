@@ -1,3 +1,5 @@
+// src/main/java/com/example/employee_creator/dto/EmployeeDTO.java
+
 package com.example.employee_creator.dto;
 
 import java.util.Date;
@@ -39,7 +41,21 @@ public class EmployeeDTO {
 
     private Double salary;
 
-    private String status;
+    private String status = "ACTIVE";
+
+    // New fields
+    @Size(max = 255)
+    private String residentialAddress;
+
+    private Date startDate;
+
+    private Date finishDate;
+
+    private Boolean ongoing;
+
+    private String employmentType;
+
+    private Integer hoursPerWeek;
 
     // Getters and setters...
     public Long getId() {
@@ -128,5 +144,53 @@ public class EmployeeDTO {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getResidentialAddress() {
+        return residentialAddress;
+    }
+
+    public void setResidentialAddress(String residentialAddress) {
+        this.residentialAddress = residentialAddress;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getFinishDate() {
+        return finishDate;
+    }
+
+    public void setFinishDate(Date finishDate) {
+        this.finishDate = finishDate;
+    }
+
+    public Boolean getOngoing() {
+        return ongoing;
+    }
+
+    public void setOngoing(Boolean ongoing) {
+        this.ongoing = ongoing;
+    }
+
+    public String getEmploymentType() {
+        return employmentType;
+    }
+
+    public void setEmploymentType(String employmentType) {
+        this.employmentType = employmentType;
+    }
+
+    public Integer getHoursPerWeek() {
+        return hoursPerWeek;
+    }
+
+    public void setHoursPerWeek(Integer hoursPerWeek) {
+        this.hoursPerWeek = hoursPerWeek;
     }
 }

@@ -1,9 +1,8 @@
+// src/main/java/com/example/employee_creator/model/Employee.java
+
 package com.example.employee_creator.model;
 
 import java.util.Date;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,72 +14,78 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
 
+    public enum Status {
+        ACTIVE, INACTIVE, TERMINATED
+    }
+
+    public enum EmploymentType {
+        FULL_TIME, PART_TIME
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Size(max = 50)
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
 
-    @NotNull
-    @Size(max = 50)
     @Column(name = "last_name", nullable = false, length = 50)
     private String lastName;
 
-    @NotNull
-    @Email
-    @Size(max = 100)
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    @Size(max = 20)
     @Column(name = "phone_number", length = 20)
     private String phoneNumber;
 
-    @Size(max = 100)
-    @Column(length = 100)
+    @Column(name = "department", length = 100)
     private String department;
 
-    @Size(max = 100)
     @Column(name = "job_title", length = 100)
     private String jobTitle;
 
     @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
-    @NotNull
     @Column(name = "hire_date", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date hireDate;
 
-    @Column
+    @Column(name = "salary")
     private Double salary;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('ACTIVE', 'INACTIVE', 'TERMINATED') DEFAULT 'ACTIVE'")
-    private Status status;
+    @Column(name = "status", nullable = false, length = 20)
+    private Status status = Status.ACTIVE;
 
-    @Column(name = "created_at", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp
-    private Date createdAt;
+    @Column(name = "residential_address", length = 255)
+    private String residentialAddress;
 
-    @Column(name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    @UpdateTimestamp
-    private Date updatedAt;
-    
+    @Column(name = "start_date")
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+
+    @Column(name = "finish_date")
+    @Temporal(TemporalType.DATE)
+    private Date finishDate;
+
+    @Column(name = "ongoing")
+    private Boolean ongoing;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "employment_type", length = 20)
+    private EmploymentType employmentType = EmploymentType.FULL_TIME;
+
+    @Column(name = "hours_per_week")
+    private Integer hoursPerWeek;
+
     // Getters and setters...
-
     public Long getId() {
         return id;
     }
@@ -169,23 +174,51 @@ public class Employee {
         this.status = status;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public String getResidentialAddress() {
+        return residentialAddress;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setResidentialAddress(String residentialAddress) {
+        this.residentialAddress = residentialAddress;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public enum Status {
-        ACTIVE, INACTIVE, TERMINATED
+    public Date getFinishDate() {
+        return finishDate;
+    }
+
+    public void setFinishDate(Date finishDate) {
+        this.finishDate = finishDate;
+    }
+
+    public Boolean getOngoing() {
+        return ongoing;
+    }
+
+    public void setOngoing(Boolean ongoing) {
+        this.ongoing = ongoing;
+    }
+
+    public EmploymentType getEmploymentType() {
+        return employmentType;
+    }
+
+    public void setEmploymentType(EmploymentType employmentType) {
+        this.employmentType = employmentType;
+    }
+
+    public Integer getHoursPerWeek() {
+        return hoursPerWeek;
+    }
+
+    public void setHoursPerWeek(Integer hoursPerWeek) {
+        this.hoursPerWeek = hoursPerWeek;
     }
 }

@@ -1,4 +1,4 @@
-// Employees.tsx
+// src/pages/Employees.tsx
 
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
@@ -18,6 +18,12 @@ interface Employee {
   hireDate: string;
   salary: number;
   status: string;
+  residentialAddress: string;
+  startDate: string;
+  finishDate: string;
+  ongoing: boolean;
+  employmentType: string;
+  hoursPerWeek: number;
 }
 
 const Employees: React.FC = () => {
@@ -49,7 +55,7 @@ const Employees: React.FC = () => {
   }
 
   return (
-    <div className="w-full  min-h-screen bg-gray-100">
+    <div className="w-full min-h-screen bg-gray-100">
       <Header title="Employees' list" />
       <div className="max-w-4xl mx-auto">
         <EmployeeHeader />

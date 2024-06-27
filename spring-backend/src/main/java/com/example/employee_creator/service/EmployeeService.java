@@ -47,7 +47,13 @@ public class EmployeeService {
         existingEmployee.setDateOfBirth(employeeDTO.getDateOfBirth());
         existingEmployee.setHireDate(employeeDTO.getHireDate());
         existingEmployee.setSalary(employeeDTO.getSalary());
-        existingEmployee.setStatus(Employee.Status.valueOf(employeeDTO.getStatus()));
+        existingEmployee.setStatus(Employee.Status.valueOf(Optional.ofNullable(employeeDTO.getStatus()).orElse("ACTIVE")));
+        existingEmployee.setResidentialAddress(employeeDTO.getResidentialAddress());
+        existingEmployee.setStartDate(employeeDTO.getStartDate());
+        existingEmployee.setFinishDate(employeeDTO.getFinishDate());
+        existingEmployee.setOngoing(employeeDTO.getOngoing());
+        existingEmployee.setEmploymentType(Employee.EmploymentType.valueOf(Optional.ofNullable(employeeDTO.getEmploymentType()).orElse("FULL_TIME")));
+        existingEmployee.setHoursPerWeek(employeeDTO.getHoursPerWeek());
 
         final Employee updatedEmployee = employeeRepository.save(existingEmployee);
         return convertToDTO(updatedEmployee);
@@ -72,6 +78,12 @@ public class EmployeeService {
         employeeDTO.setHireDate(employee.getHireDate());
         employeeDTO.setSalary(employee.getSalary());
         employeeDTO.setStatus(employee.getStatus().name());
+        employeeDTO.setResidentialAddress(employee.getResidentialAddress());
+        employeeDTO.setStartDate(employee.getStartDate());
+        employeeDTO.setFinishDate(employee.getFinishDate());
+        employeeDTO.setOngoing(employee.getOngoing());
+        employeeDTO.setEmploymentType(employee.getEmploymentType().name());
+        employeeDTO.setHoursPerWeek(employee.getHoursPerWeek());
         return employeeDTO;
     }
 
@@ -86,7 +98,13 @@ public class EmployeeService {
         employee.setDateOfBirth(employeeDTO.getDateOfBirth());
         employee.setHireDate(employeeDTO.getHireDate());
         employee.setSalary(employeeDTO.getSalary());
-        employee.setStatus(Employee.Status.valueOf(employeeDTO.getStatus()));
+        employee.setStatus(Employee.Status.valueOf(Optional.ofNullable(employeeDTO.getStatus()).orElse("ACTIVE")));
+        employee.setResidentialAddress(employeeDTO.getResidentialAddress());
+        employee.setStartDate(employeeDTO.getStartDate());
+        employee.setFinishDate(employeeDTO.getFinishDate());
+        employee.setOngoing(employeeDTO.getOngoing());
+        employee.setEmploymentType(Employee.EmploymentType.valueOf(Optional.ofNullable(employeeDTO.getEmploymentType()).orElse("FULL_TIME")));
+        employee.setHoursPerWeek(employeeDTO.getHoursPerWeek());
         return employee;
     }
 }

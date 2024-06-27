@@ -1,4 +1,4 @@
-// EmployeeList.tsx
+// src/components/EmployeeList.tsx
 
 import React, { useState } from 'react';
 import EmployeeCard from './EmployeeCard';
@@ -14,6 +14,12 @@ interface Employee {
   hireDate: string;
   salary: number;
   status: string;
+  residentialAddress: string;
+  startDate: string;
+  finishDate: string;
+  ongoing: boolean;
+  employmentType: string;
+  hoursPerWeek: number;
 }
 
 interface EmployeeListProps {

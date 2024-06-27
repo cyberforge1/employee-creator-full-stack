@@ -1,5 +1,3 @@
-// PersonalInformation.tsx
-
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 
@@ -38,6 +36,28 @@ const PersonalInformation: React.FC = () => {
         />
         {errors.lastName && <span className="text-red-500">This field is required</span>}
       </div>
+
+      <div className="mb-4">
+        <label className="block font-bold mb-2">Email</label>
+        <input
+          type="email"
+          {...register('email', { required: true })}
+          className="border p-2 w-full"
+        />
+        {errors.email && <span className="text-red-500">This field is required</span>}
+      </div>
+
+      <div className="mb-4">
+        <label className="block font-bold mb-2">Hire Date</label>
+        <input
+          type="date"
+          {...register('hireDate', { required: true })}
+          className="border p-2 w-full"
+          style={{ backgroundColor: 'white' }}
+        />
+        {errors.hireDate && <span className="text-red-500">This field is required</span>}
+      </div>
+
     </div>
   );
 };
