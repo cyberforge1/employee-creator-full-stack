@@ -161,10 +161,9 @@ The aim of this application was to create a robust API to create, read, update, 
 - Learning how to apply unit-testing, integration testing, and end-to-end testing on the frontend and backend.
 
 ## Contact Me
-- Visit my LinkedIn for more details.
-- Check out my GitHub for more projects.
-- Or send me an email at youremail@example.com
-
+- Visit my [LinkedIn](https://www.linkedin.com/in/obj809/) for more details.
+- Check out my [GitHub](https://github.com/cyberforge1) for more projects.
+- Or send me an email at obj809@gmail.com
 <br />
 Thanks for your interest in this project. Feel free to reach out with any thoughts or questions.
 <br />
