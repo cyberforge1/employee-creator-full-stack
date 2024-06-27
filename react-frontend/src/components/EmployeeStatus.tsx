@@ -4,7 +4,8 @@ import React from 'react';
 import { useFormContext } from 'react-hook-form';
 
 const EmployeeStatus: React.FC = () => {
-  const { register, formState: { errors } } = useFormContext();
+  const { register, formState: { errors }, getValues } = useFormContext();
+  const contractTypeValue = getValues('contractType'); // Get the initial value of contractType
 
   return (
     <div className="container">
@@ -18,6 +19,7 @@ const EmployeeStatus: React.FC = () => {
             value="Permanent"
             {...register('contractType', { required: true })}
             className="mr-2"
+            defaultChecked={contractTypeValue === 'Permanent'} // Set the default checked value
           />
           <label>Permanent</label>
         </div>
@@ -27,6 +29,7 @@ const EmployeeStatus: React.FC = () => {
             value="Contract"
             {...register('contractType', { required: true })}
             className="mr-2"
+            defaultChecked={contractTypeValue === 'Contract'} // Set the default checked value
           />
           <label>Contract</label>
         </div>
@@ -92,6 +95,16 @@ const EmployeeStatus: React.FC = () => {
           className="border p-2 w-full"
         />
         {errors.hoursPerWeek && <span className="text-red-500">This field is required</span>}
+      </div>
+
+      <div className="mb-4">
+        <label className="block font-bold mb-2">Job Title</label>
+        <input
+          type="text"
+          {...register('jobTitle', { required: true })}
+          className="border p-2 w-full"
+        />
+        {errors.jobTitle && <span className="text-red-500">This field is required</span>}
       </div>
     </div>
   );

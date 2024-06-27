@@ -1,37 +1,41 @@
 // src/components/EmployeeCard.tsx
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { deleteEmployee } from '../services/employeeService';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../store';
+import { deleteEmployee } from '../store/employeesSlice';
+
+interface Employee {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  department: string;
+  jobTitle: string;
+  hireDate: string;
+  salary: number;
+  status: string;
+  residentialAddress: string;
+  startDate: string;
+  finishDate: string;
+  ongoing: boolean;
+  employmentType: string;
+  hoursPerWeek: number;
+}
 
 interface EmployeeCardProps {
-  employee: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-    department: string;
-    jobTitle: string;
-    hireDate: string;
-    salary: number;
-    status: string;
-    residentialAddress: string;
-    startDate: string;
-    finishDate: string;
-    ongoing: boolean;
-    employmentType: string;
-    hoursPerWeek: number;
-  };
+  employee: Employee;
   onEmployeeDeleted: (id: number) => void;
 }
 
 const EmployeeCard: React.FC<EmployeeCardProps> = ({ employee, onEmployeeDeleted }) => {
   const navigate = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
 
   const handleRemove = async () => {
     try {
-      await deleteEmployee(employee.id);
+      await dispatch(deleteEmployee(employee.id));
       onEmployeeDeleted(employee.id);
     } catch (error) {
       console.error('Failed to delete employee', error);

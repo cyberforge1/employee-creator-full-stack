@@ -1,61 +1,61 @@
 // src/pages/EmployeeForm.tsx
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '../store';
 import Header from '../components/Header';
-import axios from 'axios';
 import PersonalInformation from '../components/PersonalInformation';
 import ContactDetails from '../components/ContactDetails';
 import EmployeeStatus from '../components/EmployeeStatus';
+import { addEmployee, updateEmployee, fetchEmployees } from '../store/employeesSlice';
+import BackButton from '../components/BackButton';
 
 const EmployeeForm: React.FC = () => {
   const methods = useForm();
   const { handleSubmit, reset } = methods;
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [loading, setLoading] = useState(true);
-
-  const onSubmit = async (data: any) => {
-    console.log('Submitting data:', data);
-    try {
-      if (id) {
-        await axios.put(`http://localhost:8080/employees/${id}`, data);
-      } else {
-        await axios.post('http://localhost:8080/employees', data);
-      }
-      navigate('/employees');
-    } catch (error) {
-      console.error('Failed to save employee', error);
-    }
-  };
+  const dispatch: AppDispatch = useDispatch();
+  const { employees, loading, error } = useSelector((state: RootState) => state.employees);
 
   useEffect(() => {
     if (id) {
-      const fetchEmployee = async () => {
-        try {
-          const response = await axios.get(`http://localhost:8080/employees/${id}`);
-          reset(response.data);
-          setLoading(false);
-        } catch (error) {
-          console.error('Failed to fetch employee', error);
-        }
-      };
-
-      fetchEmployee();
-    } else {
-      setLoading(false);
+      dispatch(fetchEmployees());
     }
-  }, [id, reset]);
+  }, [id, dispatch]);
+
+  useEffect(() => {
+    if (id && employees.length > 0) {
+      const employee = employees.find((emp) => emp.id === Number(id));
+      if (employee) {
+        reset(employee); // Reset form fields with fetched employee data
+      }
+    }
+  }, [id, employees, reset]);
+
+  const onSubmit = async (data: any) => {
+    if (id) {
+      await dispatch(updateEmployee({ id: Number(id), employee: data }));
+    } else {
+      await dispatch(addEmployee(data));
+    }
+    navigate('/');
+  };
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <div className="w-full bg-off-white full-height">
-      <Header title="Employee Form" />
+      <Header title="Employee details" />
       <div className="bg-white p-8 shadow-md rounded-md container">
+        <BackButton />
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <PersonalInformation />
@@ -66,7 +66,7 @@ const EmployeeForm: React.FC = () => {
               <button
                 type="button"
                 className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700 w-full mr-2"
-                onClick={() => navigate('/employees')}
+                onClick={() => navigate('/')}
               >
                 Cancel
               </button>

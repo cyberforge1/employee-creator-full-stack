@@ -1,4 +1,4 @@
-// ContactDetails.tsx
+// src/components/ContactDetails.tsx
 
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -34,10 +34,10 @@ const ContactDetails: React.FC = () => {
         <label className="block font-bold mb-2">Residential address</label>
         <input
           type="text"
-          {...register('address', { required: true })}
+          {...register('residentialAddress', { required: true })}
           className="border p-2 w-full"
         />
-        {errors.address && <span className="text-red-500">This field is required</span>}
+        {errors.residentialAddress && <span className="text-red-500">This field is required</span>}
       </div>
     </div>
   );

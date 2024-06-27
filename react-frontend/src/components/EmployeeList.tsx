@@ -1,5 +1,4 @@
 // src/components/EmployeeList.tsx
-
 import React, { useState } from 'react';
 import EmployeeCard from './EmployeeCard';
 
@@ -36,7 +35,11 @@ const EmployeeList: React.FC<EmployeeListProps> = ({ employees }) => {
   return (
     <div className="p-4 w-full">
       {employeeList.map((employee) => (
-        <EmployeeCard key={employee.id} employee={employee} onEmployeeDeleted={handleEmployeeDeleted} />
+        <EmployeeCard 
+          key={employee.id} 
+          employee={employee} 
+          onEmployeeDeleted={handleEmployeeDeleted} 
+        />
       ))}
     </div>
   );
