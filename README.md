@@ -1,7 +1,7 @@
 # Employee Creator - Full-Stack Web App
 
 ## Project Overview
-A full-stack employee management application with complete CRUD functionality, utilizing a Spring Boot API, a TypeScript React UI, and a MySQL database.
+A full-stack employee management application with comprehensive CRUD functionality. Developed with a Spring Boot API, a TypeScript React UI, MySQL, Redux, Tailwind CSS, Log4j, JUnit, and Axios.
 
 ## Screenshot
 ![Project Screenshot](/images/project-screenshot.png)
